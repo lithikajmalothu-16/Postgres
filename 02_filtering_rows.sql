@@ -12,5 +12,12 @@ select facid, name, membercost, monthlymaintenance
 		(membercost < monthlymaintenance/50.0);          
 
 ---Exercise 5:How can you produce a list of all facilities with the word 'Tennis' in their name?
----use single quotes to match the terms, and % symbol to return the word (even if extra terms are surrounding it).
+---use single quotes to match the terms, and % symbol to return the word (even if extra terms are surrounding it.)
 select *from cd.facilities where name like '%Tennis%'; 
+
+---Exercise 6: How can you retrieve the details of facilities with ID 1 and 5? Try to do it without using the OR operator.
+--with OR:
+select * from cd.facilities where facid = 1 or facid= 5;
+--without OR:
+select * from cd.facilities 
+where facid in (1,5);
