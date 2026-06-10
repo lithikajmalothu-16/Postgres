@@ -36,8 +36,15 @@ select name,
 	end as cost
 	from cd.facilities;          
 
---The second new concept is the CASE statement itself. CASE is effectively like if/switch
---- statements in other languages, with a form as shown in the query. 
---To add a 'middling' option, we would simply insert another when...then section.
--- the AS operator. This is simply used to label columns or expressions, to make them display 
---more nicely or to make them easier to reference when used as part of a subquery.
+--The CASE statement functions like an if/switch statement, allowing you to add conditional WHEN..
+--.THEN sections.
+--The AS operator is used to rename columns 
+--or expressions (like naming a new column cost) for better display and easier subquery reference.
+
+---Excercise 8: How can you produce a list of members who joined after the start of September 2012? 
+--Return the memid, surname, firstname, and joindate of the members in question.
+
+select memid, surname, firstname, joindate 
+	from cd.members
+	where joindate >= '2012-09-01';          
+
