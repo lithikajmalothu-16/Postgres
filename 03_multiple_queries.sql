@@ -16,3 +16,5 @@ select firstname, surname, joindate from cd.members
 where joindate = (select max(joindate) from cd.members);
 
 -- this query now includes sub-query
+
+-- the simple SQL section ends here. 
