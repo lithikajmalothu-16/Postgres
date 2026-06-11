@@ -15,4 +15,4 @@ select max(joindate) as latest from cd.members;
 select firstname, surname, joindate from cd.members 
 where joindate = (select max(joindate) from cd.members);
 
--- this query now includes a sub-query.
+-- this query now includes sub-query
