@@ -19,21 +19,20 @@ WHERE mems.firstname = 'David' and mems.surname = 'Farrell';
 SELECT bks.starttime as start, facs.name as name  -- new column names.
 FROM cd.bookings bks -- can be cd.facilities facs
 INNER JOIN cd.facilities facs ON facs.facid = bks.facid
-WHERE facs.name in ('Tennis Court 1','Tennis Court 2')
-AND bks.starttime >= '2012-09-21' AND bks.starttime < '2012-09-22'
-ORDER BY bks.starttime;
-
+WHERE facs.name in ('Tennis Court 1','Tennis Court 2') -- eliminating everything that else that does not include Tennis Court
+AND bks.starttime >= '2012-09-21' AND bks.starttime < '2012-09-22' -- 21st (including this day) and after, and before 22nd.
+ORDER BY bks.starttime; 
+-- order by : displayed in ascending order of time.
 
 
 ---How can you output a list of all members who have recommended another member? 
 ---Ensure that there are no duplicates in the list, and that results are ordered by (surname, firstname).
 
-select distinct recs.firstname as firstname, recs.surname as surname
-	from 
-		cd.members mems
-		inner join cd.members recs
-			on recs.memid = mems.recommendedby
-order by surname, firstname;  
+SELECT distinct recs.firstname as firstname, recs.surname as surname
+FROM cd.members mems 
+INNER JOIN cd.members recs ON  -- to create another copy of the same table-> use a different alias.
+recs.memid = mems.recommendedby --(this was the original name of the row)
+ORDER BY surname, firstname;
 
 
 ---How can you output a list of all members, including the individual 
