@@ -1,11 +1,12 @@
 --INNER JOIN:
 --How can you produce a list of the start times for bookings by members named 'David Farrell'?
-select bks.starttime from cd.bookings bks
-	inner join cd.members mems
-			on mems.memid = bks.memid
-	where 
-		mems.firstname='David' 
-		and mems.surname='Farrell';          
+
+-- 'bks' & 'mems' is the alias name.
+-- alias should be after the table NAME and before the row.
+SELECT bks.starttime FROM cd.bookings bks  
+INNER JOIN cd.members mems 
+ON mems.memid = bks.memid
+WHERE mems.firstname = 'David' and mems.surname = 'Farrell';        
 
 --How can you produce a list of the start times for bookings for tennis courts, 
 --for the date '2012-09-21'? Return a list of start time and facility name pairings, ordered by the time.
